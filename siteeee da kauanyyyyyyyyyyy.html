@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico de Carreira: Kauany de Andrade Prock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: #118AB2;
+        }
+        .timeline-item:first-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: -30px;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FFD166;
+            border: 3px solid #118AB2;
+        }
+        .timeline-year {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 900;
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            color: #ffffff;
+            background-color: #118AB2;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-[#073B4C]">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#118AB2] uppercase">Kauany de Andrade Prock</h1>
+            <p class="text-xl md:text-2xl font-light mt-2">Potencial em Administração Pronta para o Mercado</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="objective" class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border-t-8 border-[#06D6A0]">
+                <h2 class="text-2xl font-bold mb-4 text-center">🎯 Objetivo Profissional</h2>
+                <p id="currentObjective" class="text-center text-lg md:text-xl max-w-3xl mx-auto">
+                    Em busca da primeira oportunidade de trabalho para desenvolver minhas habilidades, aplicar meus conhecimentos em administração e crescer junto à empresa, contribuindo com dedicação, responsabilidade e proatividade.
+                </p>
+                <div class="text-center mt-6">
+                    <button id="optimizeObjectiveBtn" class="bg-[#118AB2] hover:bg-[#0e749a] text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
+                        ✨ Otimizar Objetivo
+                    </button>
+                    <div id="objectiveLoading" class="mt-4 text-[#118AB2] hidden">Carregando sugestão...</div>
+                    <p id="optimizedObjectiveOutput" class="mt-4 text-center text-lg md:text-xl max-w-3xl mx-auto italic text-gray-700"></p>
+                </div>
+            </section>
+            
+            <section id="education" class="text-center">
+                <h2 class="text-3xl font-bold mb-8">🚀 Fundação Dupla: Formação Sólida em 2025</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-2xl shadow-md p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-6xl mb-4">🎓</div>
+                        <h3 class="text-2xl font-bold text-[#118AB2]">Ensino Médio</h3>
+                        <p class="text-lg">Escola Estadual Américo Dias Pereira</p>
+                        <p class="font-bold text-lg bg-[#FFD166] text-[#073B4C] rounded-full py-1 px-4 inline-block mt-4">Conclusão: 2025</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-md p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-6xl mb-4">💼</div>
+                        <h3 class="text-2xl font-bold text-[#118AB2]">Técnico em Administração</h3>
+                        <p class="text-lg">Formação especializada para gestão</p>
+                        <p class="font-bold text-lg bg-[#FFD166] text-[#073B4C] rounded-full py-1 px-4 inline-block mt-4">Conclusão: 2025</p>
+                    </div>
+                </div>
+                 <p class="mt-8 text-center text-gray-600 max-w-3xl mx-auto">A conclusão simultânea do Ensino Médio e do curso Técnico em Administração demonstra um alto nível de foco, disciplina e preparação para ingressar no mercado de trabalho com uma base de conhecimento robusta.</p>
+            </section>
+
+            <section id="courses" class="text-center">
+                <h2 class="text-3xl font-bold mb-24">⚡ Aceleração de Competências em 2024</h2>
+                <div class="relative pt-20 max-w-5xl mx-auto">
+                     <div class="timeline-year">2024</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                        <div class="relative timeline-item bg-white rounded-2xl shadow-md p-6">
+                            <div class="timeline-dot"></div>
+                            <h3 class="font-bold text-lg text-[#06D6A0]">Microempreendedor Individual (MEI)</h3>
+                            <p class="text-sm">Noções de empreendedorismo e formalização de negócios. (Sebrae)</p>
+                        </div>
+                        <div class="relative timeline-item bg-white rounded-2xl shadow-md p-6">
+                            <div class="timeline-dot"></div>
+                            <h3 class="font-bold text-lg text-[#06D6A0]">Nota Fiscal Eletrônica</h3>
+                            <p class="text-sm">Conhecimento prático sobre emissão e gestão de NFe. (Sebrae)</p>
+                        </div>
+                        <div class="relative timeline-item bg-white rounded-2xl shadow-md p-6">
+                            <div class="timeline-dot"></div>
+                            <h3 class="font-bold text-lg text-[#06D6A0]">Inovação em Gestão de Projetos</h3>
+                            <p class="text-sm">Técnicas modernas para planejar e executar projetos. (Sebrae)</p>
+                        </div>
+                        <div class="relative timeline-item bg-white rounded-2xl shadow-md p-6">
+                            <div class="timeline-dot"></div>
+                            <h3 class="font-bold text-lg text-[#06D6A0]">Microsoft Excel</h3>
+                            <p class="text-sm">Habilidades fundamentais em planilhas para análise de dados. (Sebrae)</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-12 text-center text-gray-600 max-w-3xl mx-auto">Esta série de cursos complementares do Sebrae, concluída em 2024, demonstra uma busca proativa por conhecimentos práticos e alinhados com as demandas atuais do mercado administrativo e de gestão.</p>
+            </section>
+
+            <section id="skills" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-8">📊 Perfil de Competências</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-gray-600">
+                        <p class="mb-4">Este gráfico de radar ilustra um perfil de competências bem-arredondado, combinando uma base técnica sólida em administração com habilidades interpessoais essenciais para o ambiente de trabalho moderno.</p>
+                        <p class="mb-4">As pontuações altas em áreas como <strong class="text-[#118AB2]">Proatividade</strong>, <strong class="text-[#118AB2]">Organização</strong> e <strong class="text-[#118AB2]">Aprendizado Rápido</strong> indicam uma profissional pronta para assumir desafios e se adaptar rapidamente.</p>
+                        <p>A combinação de habilidades técnicas e comportamentais a torna uma candidata versátil e valiosa para qualquer equipe.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="interests" class="text-center">
+                <h2 class="text-3xl font-bold mb-8">💡 Áreas de Interesse e Contribuição</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white rounded-2xl shadow-md p-8 border-b-8 border-[#FF6B6B]">
+                        <h3 class="text-2xl font-bold text-[#FF6B6B]">Administrativo</h3>
+                        <p class="mt-2">Apoio em rotinas de escritório, organização de documentos, planilhas e processos internos.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-md p-8 border-b-8 border-[#FFD166]">
+                        <h3 class="text-2xl font-bold text-[#FFD166]">Atendimento</h3>
+                        <p class="mt-2">Comunicação com clientes e fornecedores, solucionando dúvidas e oferecendo suporte de qualidade.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-md p-8 border-b-8 border-[#06D6A0]">
+                        <h3 class="text-2xl font-bold text-[#06D6A0]">Apoio Geral</h3>
+                        <p class="mt-2">Suporte a diversas áreas da empresa, demonstrando versatilidade e disposição para aprender.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="interview-prep" class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border-t-8 border-[#FF6B6B]">
+                <h2 class="text-3xl font-bold mb-4 text-center">🗣️ Preparação para Entrevista</h2>
+                <p class="text-center text-lg md:text-xl max-w-3xl mx-auto mb-6">
+                    Prepare-se para suas entrevistas com perguntas personalizadas baseadas no seu perfil.
+                </p>
+                <div class="text-center">
+                    <button id="generateQuestionsBtn" class="bg-[#FF6B6B] hover:bg-[#e05f5f] text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
+                        ✨ Gerar Perguntas para Entrevista
+                    </button>
+                    <div id="questionsLoading" class="mt-4 text-[#FF6B6B] hidden">Gerando perguntas...</div>
+                    <div id="interviewQuestionsOutput" class="mt-6 text-left max-w-3xl mx-auto space-y-3 text-lg"></div>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t-2 border-gray-200">
+            <h2 class="text-2xl font-bold text-[#118AB2]">Entre em Contato</h2>
+            <p class="mt-2 text-lg">Pronta para contribuir com energia e dedicação!</p>
+            <div class="mt-4 text-lg">
+                <p><strong>E-mail:</strong> kauanyprock1206@gmail.com</p>
+                <p><strong>Telefone:</strong> (35) 99901-1206</p>
+                <p><strong>Localização:</strong> Três Corações – MG</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+
+            const labels = [
+                'Formação em Adm.',
+                wrapLabel('Comunicação & Equipe', 16),
+                wrapLabel('Organização & Responsabilidade', 16),
+                wrapLabel('Proatividade & Pontualidade', 16),
+                'Aprendizado Rápido',
+                'Microsoft Excel'
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Nível de Competência Percebido',
+                    data: [9, 8, 9, 9, 10, 7],
+                    backgroundColor: 'rgba(6, 214, 160, 0.2)',
+                    borderColor: '#06D6A0',
+                    pointBackgroundColor: '#06D6A0',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#06D6A0',
+                    borderWidth: 2
+                }]
+            };
+
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(7, 59, 76, 0.2)'
+                        },
+                        grid: {
+                            color: 'rgba(7, 59, 76, 0.2)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            },
+                            color: '#073B4C'
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#073B4C',
+                            stepSize: 2
+                        },
+                         min: 0,
+                         max: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                         labels: {
+                            color: '#073B4C',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: data,
+                options: options
+            });
+
+            const currentObjectiveElement = document.getElementById('currentObjective');
+            const optimizeObjectiveBtn = document.getElementById('optimizeObjectiveBtn');
+            const objectiveLoading = document.getElementById('objectiveLoading');
+            const optimizedObjectiveOutput = document.getElementById('optimizedObjectiveOutput');
+
+            optimizeObjectiveBtn.addEventListener('click', async () => {
+                const currentObjective = currentObjectiveElement.textContent.trim();
+                objectiveLoading.classList.remove('hidden');
+                optimizedObjectiveOutput.textContent = '';
+
+                const prompt = `Dado o seguinte objetivo de currículo: '${currentObjective}'. Sugira uma versão mais impactante e profissional, mantendo-a concisa para uma primeira aplicação de emprego. Foque em destacar a vontade de aprender, dedicação e proatividade.`;
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = "AIzaSyCu2MzEvFRt-jEVdtv_-975nw4zhKenct8"; // <-- API Key inserida aqui
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                    const response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        optimizedObjectiveOutput.textContent = `Sugestão: "${text.replace(/"/g, '')}"`;
+                    } else {
+                        optimizedObjectiveOutput.textContent = 'Não foi possível gerar uma sugestão no momento. Tente novamente.';
+                    }
+                } catch (error) {
+                    console.error('Erro ao otimizar objetivo:', error);
+                    optimizedObjectiveOutput.textContent = 'Ocorreu um erro ao otimizar o objetivo. Por favor, tente novamente mais tarde.';
+                } finally {
+                    objectiveLoading.classList.add('hidden');
+                }
+            });
+
+            const generateQuestionsBtn = document.getElementById('generateQuestionsBtn');
+            const questionsLoading = document.getElementById('questionsLoading');
+            const interviewQuestionsOutput = document.getElementById('interviewQuestionsOutput');
+
+            generateQuestionsBtn.addEventListener('click', async () => {
+                questionsLoading.classList.remove('hidden');
+                interviewQuestionsOutput.innerHTML = '';
+
+                const resumeContent = `
+                    Nome: Kauany de Andrade Prock
+                    Objetivo: Em busca da primeira oportunidade de trabalho para desenvolver minhas habilidades, aprender na prática e crescer junto à empresa, contribuindo com dedicação e responsabilidade.
+                    Formação Acadêmica: Ensino Médio (3º ano – Conclusão prevista: 2025), Curso Técnico em Administração – Concluído em 2025
+                    Cursos Complementares: Microempreendedor Individual (MEI) – Sebrae, 2024; Nota Fiscal Eletrônica – Sebrae, 2024; Inovação em Gestão de Projetos – Sebrae, 2024; Microsoft Excel – Sebrae, 2024
+                    Qualificações e Competências: Formação técnica em Administração, Conhecimento básico em Microsoft Excel, Organização e responsabilidade, Proatividade e pontualidade, Facilidade de aprendizado, Comunicação clara e respeito no trabalho em equipe, Interesse em áreas administrativas, atendimento e apoio geral.
+                `;
+
+                const prompt = `Com base no seguinte perfil de currículo, gere 3-5 perguntas de entrevista comuns que Kauany de Andrade Prock pode ser questionada para uma função administrativa ou de suporte de nível inicial. Foque na falta de experiência anterior, no curso técnico, nos cursos complementares e nas habilidades e interesses declarados. Formate a saída como uma lista numerada. Perfil do Currículo:\n\n${resumeContent}`;
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = "AIzaSyCu2MzEvFRt-jEVdtv_-975nw4zhKenct8"; // <-- API Key inserida aqui
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                    const response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        const questions = text.split('\n').filter(q => q.trim() !== '');
+                        questions.forEach(q => {
+                            const p = document.createElement('p');
+                            p.textContent = q;
+                            interviewQuestionsOutput.appendChild(p);
+                        });
+                    } else {
+                        interviewQuestionsOutput.textContent = 'Não foi possível gerar perguntas no momento. Tente novamente.';
+                    }
+                } catch (error) {
+                    console.error('Erro ao gerar perguntas:', error);
+                    interviewQuestionsOutput.textContent = 'Ocorreu um erro ao gerar as perguntas. Por favor, tente novamente mais tarde.';
+                } finally {
+                    questionsLoading.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
